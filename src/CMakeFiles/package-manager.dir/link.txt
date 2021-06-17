@@ -1,0 +1,1 @@
+/usr/bin/c++  -O2 -g -DNDEBUG   CMakeFiles/package-manager.dir/Main.cpp.o CMakeFiles/package-manager.dir/AppBuilder.cpp.o CMakeFiles/package-manager.dir/TerminalApp.cpp.o CMakeFiles/package-manager.dir/PackageManagerApp.cpp.o  -o package-manager 
