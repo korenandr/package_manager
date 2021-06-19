@@ -2,6 +2,7 @@
 
 #include "cmd/CommandCreator.hpp"
 #include "cmd/ShowHelpPage.hpp"
+#include "utils/InputCommandValidator.hpp"
 
 #include <iostream>
 #include <memory>
@@ -26,7 +27,10 @@ CommandCreator::Arguments readArguments()
     CommandCreator::Arguments arguments;
     ss >> arguments.type >> arguments.path >> arguments.packageName;
 
-    // TODO: Add input validator!
+    if(!InputCommandValidator::isValid(arguments))
+    {
+        arguments.type = CommandCreator::Arguments::COMMAND_TYPE::SHOW_ERROR_MESSAGE;
+    }
 
     return arguments;
 }

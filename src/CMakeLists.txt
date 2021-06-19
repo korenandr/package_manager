@@ -11,6 +11,7 @@ set(SOURCE_FILES
         cmd/AddPackage.cpp
         cmd/PrintPackage.cpp
         cmd/RemovePackage.cpp
+        utils/InputCommandValidator.cpp
         )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
