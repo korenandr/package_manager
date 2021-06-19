@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.6)
 
 project(package-manager VERSION 1.0)
 include(cmake/StandardProjectSettings.cmake)
+include(cmake/PreventInSourceBuilds.cmake)
 
 
 option(ENABLE_TESTING "Enable Test Builds" ON)
