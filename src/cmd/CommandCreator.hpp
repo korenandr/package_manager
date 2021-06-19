@@ -14,17 +14,22 @@ public:
     {
         enum class COMMAND_TYPE
         {
-            SHOW_HELP_PAGE = 0,
-            SHOW_ERROR_MESSAGE,
             CREATE_PACKAGE,
             ADD_PACKAGE,
             REMOVE_PACKAGE,
             PRINT_PACKAGE,
+            SHOW_HELP_PAGE,
+            SHOW_ERROR_MESSAGE,
+            EXIT,
+
+            UNKNOWN
         };
 
         COMMAND_TYPE type;
         std::string path;
         std::string packageName;
+
+        friend std::istream& operator>>(std::istream& is, COMMAND_TYPE& type);
     };
 
 public:

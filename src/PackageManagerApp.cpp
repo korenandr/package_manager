@@ -6,21 +6,29 @@
 #include <iostream>
 #include <memory>
  
+#include <sstream>
+
 
 namespace
 {
 
 CommandCreator::Arguments readArguments()
 {
-    std::cout << "Input command:\n";
+    std::string cmd;
 
-    // TODO: Parse and validate arguments
-    // TODO: create and return command
+    do {
+        std::getline(std::cin, cmd);
+    } 
+    while(cmd.empty());
 
-    int cmd = 0;
-    std::cin >> cmd;
+    std::stringstream ss(cmd);
 
-    return { static_cast<CommandCreator::Arguments::COMMAND_TYPE>(cmd), "", "" };
+    CommandCreator::Arguments arguments;
+    ss >> arguments.type >> arguments.path >> arguments.packageName;
+
+    // TODO: Add input validator!
+
+    return arguments;
 }
 
 } //namespace
