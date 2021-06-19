@@ -10,11 +10,13 @@
 class PackageManagerApp final : public App
 {
 public:
+    PackageManagerApp();
+
     int run(int argc, char** argv) override;
 
 private:
 
-    Package _root;
+    std::shared_ptr<Package> _root;
 };
 
 #endif //TESLASUIT_PACKAGE_MANAGER_PACKAGEMANAGERAPP_HPP

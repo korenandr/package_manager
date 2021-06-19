@@ -1,16 +1,16 @@
 #include "PackageManagerApp.hpp"
 
+#include "cmd/CommandCreator.hpp"
+#include "cmd/ShowHelpPage.hpp"
+
 #include <iostream>
+#include <memory>
+ 
 
 namespace
 {
 
-void showHelpPage()
-{
-    std::cout << "Hello, from my package manager app!\n";
-}
-
-int readCommand()
+CommandCreator::Arguments readArguments()
 {
     std::cout << "Input command:\n";
 
@@ -20,34 +20,25 @@ int readCommand()
     int cmd = 0;
     std::cin >> cmd;
 
-    return cmd;
+    return { static_cast<CommandCreator::Arguments::COMMAND_TYPE>(cmd), "", "" };
 }
 
 } //namespace
 
 
+PackageManagerApp::PackageManagerApp()
+    : _root(std::make_shared<Package>())
+{}
+
 int PackageManagerApp::run(int argc, char** argv)
 {
-    showHelpPage();
+    std::unique_ptr<Command> command = std::make_unique<ShowHelpPage>();
 
-    while(const auto cmd = readCommand())
+    while(command)
     {
-        if(cmd == 1)
-        {
-            _root.create("home");
-            _root.add("project", "home/");
-            _root.add("tesla", "home/project/");
-            _root.add("build", "home/project/tesla/");
-        }
-        else if(cmd == 2)
-        {
-            std::string path("home/project");
-            _root.remove(path);
-        }
-        else if(cmd == 3)
-        {
-            _root.print();
-        }
+        command->execute();
+
+        command = CommandCreator::create(readArguments(), _root);
     }
 
     return 0;

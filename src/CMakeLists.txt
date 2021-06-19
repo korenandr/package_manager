@@ -4,6 +4,12 @@ set(SOURCE_FILES
         TerminalApp.cpp
         PackageManagerApp.cpp
         Package.cpp
+        cmd/CommandCreator.cpp
+        cmd/ShowHelpPage.cpp
+        cmd/CreatePackage.cpp
+        cmd/AddPackage.cpp
+        cmd/PrintPackage.cpp
+        cmd/RemovePackage.cpp
         )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
