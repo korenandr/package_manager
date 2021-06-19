@@ -6,6 +6,7 @@ set(SOURCE_FILES
         Package.cpp
         cmd/CommandCreator.cpp
         cmd/ShowHelpPage.cpp
+        cmd/ShowErrorMessage.cpp
         cmd/CreatePackage.cpp
         cmd/AddPackage.cpp
         cmd/PrintPackage.cpp

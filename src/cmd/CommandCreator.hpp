@@ -15,6 +15,7 @@ public:
         enum class COMMAND_TYPE
         {
             SHOW_HELP_PAGE = 0,
+            SHOW_ERROR_MESSAGE,
             CREATE_PACKAGE,
             ADD_PACKAGE,
             REMOVE_PACKAGE,

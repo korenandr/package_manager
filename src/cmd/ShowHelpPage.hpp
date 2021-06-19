@@ -10,4 +10,4 @@ public:
     void execute() override;
 };
 
-#endif //TESLASUIT_PACKAGE_MANAGER_CMD_COMMAND_HPP
+#endif //TESLASUIT_PACKAGE_MANAGER_CMD_SHOWHELPPAGE_HPP
