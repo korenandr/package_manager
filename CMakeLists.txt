@@ -4,6 +4,9 @@ project(package-manager VERSION 1.0)
 include(cmake/StandardProjectSettings.cmake)
 
 
+option(ENABLE_TESTING "Enable Test Builds" ON)
+
+
 # Link this 'library' to set the c++ standard / compile-time options requested
 add_library(project_options INTERFACE)
 target_compile_features(project_options INTERFACE cxx_std_11)
@@ -22,8 +25,11 @@ enable_sanitizers(project_options)
 # allow for static analysis options
 include(cmake/StaticAnalyzers.cmake)
 
-#option(ENABLE_TESTING "Enable Test Builds" ON)
-
 
 add_subdirectory(lib/cxxopts)
 add_subdirectory(src)
+
+if(ENABLE_TESTING)
+    include(cmake/GoogleTests.cmake)
+    add_subdirectory(test)
+endif()
