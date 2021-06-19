@@ -10,11 +10,14 @@
 class AddPackage final : public Command
 {
 public:
-    explicit AddPackage(std::weak_ptr<Package> package);
+    AddPackage(std::weak_ptr<Package> package, std::string&& path, std::string&& packageName);
 
     void execute() override;
 
 private:
+    std::string _path;
+    std::string _packageName;
+
     std::weak_ptr<Package> _package;
 };
 

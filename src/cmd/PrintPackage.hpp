@@ -10,11 +10,13 @@
 class PrintPackage final : public Command
 {
 public:
-    explicit PrintPackage(std::weak_ptr<Package> package);
+    PrintPackage(std::weak_ptr<Package> package, std::string&& path);
 
     void execute() override;
 
 private:
+    std::string _path;
+
     std::weak_ptr<Package> _package;
 };
 

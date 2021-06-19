@@ -20,7 +20,6 @@ CT to_commandType(const std::string& type)
     if(type == "remove") { return CT::REMOVE_PACKAGE; }
     if(type == "print")  { return CT::PRINT_PACKAGE; }
     if(type == "help")   { return CT::SHOW_HELP_PAGE; }
-    if(type == "error")  { return CT::SHOW_ERROR_MESSAGE; }
     if(type == "exit")   { return CT::EXIT; }
 
     return CT::UNKNOWN;
@@ -29,16 +28,16 @@ CT to_commandType(const std::string& type)
 } //namespace
 
 
-std::unique_ptr<Command> CommandCreator::create(const Arguments& arg, std::weak_ptr<Package> root)
+std::unique_ptr<Command> CommandCreator::create(Arguments&& arg, std::weak_ptr<Package> root)
 {
     std::unique_ptr<Command> command;
 
     switch(arg.type)
     {
-        case CT::CREATE_PACKAGE: command = std::make_unique<CreatePackage>(root); break;
-        case CT::ADD_PACKAGE:    command = std::make_unique<AddPackage>(root); break;
-        case CT::REMOVE_PACKAGE: command = std::make_unique<RemovePackage>(root); break;
-        case CT::PRINT_PACKAGE:  command = std::make_unique<PrintPackage>(root); break;
+        case CT::CREATE_PACKAGE: command = std::make_unique<CreatePackage>(root, std::move(arg.path)); break;
+        case CT::ADD_PACKAGE:    command = std::make_unique<AddPackage>(root, std::move(arg.path), std::move(arg.packageName)); break;
+        case CT::REMOVE_PACKAGE: command = std::make_unique<RemovePackage>(root, std::move(arg.path)); break;
+        case CT::PRINT_PACKAGE:  command = std::make_unique<PrintPackage>(root, std::move(arg.path)); break;
         case CT::SHOW_HELP_PAGE: command = std::make_unique<ShowHelpPage>(); break;
         case CT::SHOW_ERROR_MESSAGE: command = std::make_unique<ShowErrorMessage>(); break;
     }

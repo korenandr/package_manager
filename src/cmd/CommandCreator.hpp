@@ -33,7 +33,7 @@ public:
     };
 
 public:
-    static std::unique_ptr<Command> create(const Arguments& arg, std::weak_ptr<Package> root);
+    static std::unique_ptr<Command> create(Arguments&& arg, std::weak_ptr<Package> root);
 };
 
 #endif //TESLASUIT_PACKAGE_MANAGER_CMD_COMMANDCREATOR_HPP

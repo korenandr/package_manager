@@ -48,7 +48,7 @@ Package::OperationResult Package::add(const std::string& path, const std::string
 
     if(!it.second)
     {
-        std::cerr << "Not found path to add: " << path << std::endl;
+        std::cerr << "Not found path: " << path << std::endl;
         return OperationResult::PATH_NOT_EXISTS;
     }
 
@@ -64,7 +64,7 @@ Package::OperationResult Package::remove(std::string path)
 
     if(!it.second)
     {
-        std::cerr << "Not found path to remove: " << path << std::endl;
+        std::cerr << "Not found path: " << path << std::endl;
         return OperationResult::PATH_NOT_EXISTS;
     }
 

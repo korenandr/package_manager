@@ -10,11 +10,13 @@
 class RemovePackage final : public Command
 {
 public:
-    explicit RemovePackage(std::weak_ptr<Package> package);
+    RemovePackage(std::weak_ptr<Package> package, std::string&& path);
 
     void execute() override;
 
 private:
+    std::string _path;
+
     std::weak_ptr<Package> _package;
 };
 

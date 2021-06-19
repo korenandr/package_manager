@@ -10,11 +10,13 @@
 class CreatePackage final : public Command
 {
 public:
-    explicit CreatePackage(std::weak_ptr<Package> package);
+    CreatePackage(std::weak_ptr<Package> package, std::string&& path);
 
     void execute() override;
 
 private:
+    std::string _path;
+
     std::weak_ptr<Package> _package;
 };
 
