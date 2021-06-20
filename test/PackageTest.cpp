@@ -53,7 +53,7 @@ TEST(PackageTest, TEST_REMOVE)
     ASSERT_EQ(package.remove("home/project/teslasuit/build"), OR::NO_ERROR);
     ASSERT_NE(package.remove("home/project/teslasuit/build"), OR::NO_ERROR);
 
-    ASSERT_NE(package.remove("home/not/created/folder", "microphone"), OR::NO_ERROR);
+    ASSERT_NE(package.remove("home/not/created/folder"), OR::NO_ERROR);
 }
 
 TEST(PackageTest, TEST_PRINT)

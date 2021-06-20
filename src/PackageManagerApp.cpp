@@ -4,6 +4,7 @@
 #include "cmd/ShowHelpPage.hpp"
 #include "utils/InputCommandValidator.hpp"
 
+#include <algorithm>
 #include <iostream>
 #include <memory>
  
@@ -21,6 +22,10 @@ CommandCreator::Arguments readArguments()
         std::getline(std::cin, cmd);
     } 
     while(cmd.empty());
+
+    std::for_each(cmd.begin(), cmd.end(), [](char & c){
+        c = ::tolower(c);
+    });
 
     std::stringstream ss(cmd);
 

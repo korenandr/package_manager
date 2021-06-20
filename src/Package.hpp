@@ -14,6 +14,7 @@ public:
     {
         NO_ERROR = 0,
         PATH_NOT_EXISTS,
+        ALREADY_EXISTS
     };
 
 private:
@@ -28,11 +29,13 @@ public:
 
     OperationResult remove(std::string path);
 
-    OperationResult print(const std::string& path = "") const;
+    OperationResult print(const std::string& path = "");
 
 private:
 
     std::pair<PackageIt, bool> find(std::string relativePath);
+
+    void innerPrint(std::size_t level = 0);
 
 private:
 

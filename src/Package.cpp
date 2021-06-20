@@ -6,6 +6,8 @@
 namespace
 {
 
+constexpr std::size_t LEVEL_INDENT_MULTIPLIER = 2;
+
 std::string extractFirstPackageName(std::string& path, char delimiter = '/')
 {
     std::string packageName;
@@ -42,7 +44,13 @@ std::string extractLastPackageName(std::string& path, char delimiter = '/')
 
 Package::OperationResult Package::create(const std::string& name)
 {
-    _rootPackage[name];
+    const auto res = _rootPackage.insert({name, Package()});
+
+    if(!res.second)
+    {
+        std::cerr << "Couldnt create a new package: " << name << std::endl;
+        return OperationResult::ALREADY_EXISTS;
+    }
 
     return OperationResult::NO_ERROR;
 }
@@ -57,14 +65,20 @@ Package::OperationResult Package::add(const std::string& path, const std::string
         return OperationResult::PATH_NOT_EXISTS;
     }
 
-    it.first->second._rootPackage[name];
+    const auto res = it.first->second._rootPackage.insert({name, Package()});
+
+    if(!res.second)
+    {
+        std::cerr << "Package " << path << "/" << name << " already exists!\n";
+        return OperationResult::ALREADY_EXISTS;
+    }
 
     return OperationResult::NO_ERROR;
 }
 
 Package::OperationResult Package::remove(std::string path)
 {
-    const auto package = extractLastPackageName(path);
+    const auto packageName = extractLastPackageName(path);
     auto it = find(path);
 
     if(!it.second)
@@ -73,13 +87,38 @@ Package::OperationResult Package::remove(std::string path)
         return OperationResult::PATH_NOT_EXISTS;
     }
 
-    it.first->second._rootPackage.erase(package);
+    auto& package = it.first->second._rootPackage;
+
+    if(package.count(packageName) == 0)
+    {
+        std::cerr << "Not found package: " << packageName << std::endl;
+        return OperationResult::PATH_NOT_EXISTS;
+    }
+
+    package.erase(packageName);
     return OperationResult::NO_ERROR;
 }
 
-Package::OperationResult Package::print(const std::string& path /*= ""*/) const
+Package::OperationResult Package::print(const std::string& path /*= ""*/)
 {
-    std::cout << "Printed package: " << path << std::endl;
+    if(path.empty())
+    {
+        innerPrint();
+        return OperationResult::NO_ERROR;
+    }
+ 
+    auto it = find(path);
+
+    if(!it.second)
+    {
+        std::cerr << "Not found path: " << path << std::endl;
+        return OperationResult::PATH_NOT_EXISTS;
+    }
+
+    std::cout << std::endl << it.first->first << std::endl;
+
+    it.first->second.innerPrint();
+
     return OperationResult::NO_ERROR;
 }
 
@@ -97,4 +136,16 @@ std::pair<Package::PackageIt, bool> Package::find(std::string relativePath)
     }
 
     return std::make_pair(it, false);
+}
+
+void Package::innerPrint(std::size_t level /*= 0*/)
+{
+    ++level;
+
+    for(auto it = _rootPackage.begin(); it != _rootPackage.end(); ++it)
+    {
+        std::cout << std::string(LEVEL_INDENT_MULTIPLIER*level, ' ') << it->first << std::endl;
+
+        it->second.innerPrint(level);
+    }
 }
