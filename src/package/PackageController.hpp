@@ -9,13 +9,6 @@ class PackageController final : public Package
 public:
     PackageController();
 
-    /*
-    ~PackageController() override = default;
-
-    PackageController(const PackageController&) = delete;
-    PackageController& operator=(const PackageController&) = delete;
-    */
-
     OperationResult create(const std::string& name);
 };
 

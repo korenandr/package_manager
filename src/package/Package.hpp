@@ -25,13 +25,11 @@ public:
     explicit Package(std::string name);
     virtual ~Package() = default;
 
-    /*
     Package(const Package&) = delete;
     Package& operator=(const Package&) = delete;
 
     Package(Package&&) = default;
     Package& operator=(Package&&) = default;
-    */
 
 public:
 
