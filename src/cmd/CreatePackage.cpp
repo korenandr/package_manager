@@ -3,16 +3,16 @@
 #include <iostream>
 
 
-CreatePackage::CreatePackage(std::weak_ptr<Package> package, std::string&& path)
+CreatePackage::CreatePackage(std::weak_ptr<PackageController> packageController, std::string&& path)
     : _path(std::move(path)),
-      _package(std::move(package))
+      _packageController(std::move(packageController))
 {}
 
 void CreatePackage::execute()
 {
-    auto package = _package.lock();
+    auto controller = _packageController.lock();
 
-    if(package && package->create(_path) != Package::OperationResult::NO_ERROR)
+    if(controller && controller->create(_path) != Package::OperationResult::NO_ERROR)
     {
         std::cerr << "Error: Failed to create package: " << _path << std::endl;
     }

@@ -2,7 +2,7 @@
 #define TESLASUIT_PACKAGE_MANAGER_CMD_CREATEPACKAGE_HPP 
 
 #include "Command.hpp"
-#include "../Package.hpp"
+#include "../package/PackageController.hpp"
 
 #include <memory>
 
@@ -10,14 +10,14 @@
 class CreatePackage final : public Command
 {
 public:
-    CreatePackage(std::weak_ptr<Package> package, std::string&& path);
+    CreatePackage(std::weak_ptr<PackageController> packageController, std::string&& path);
 
     void execute() override;
 
 private:
     std::string _path;
 
-    std::weak_ptr<Package> _package;
+    std::weak_ptr<PackageController> _packageController;
 };
 
 #endif //TESLASUIT_PACKAGE_MANAGER_CMD_CREATEPACKAGE_HPP

@@ -3,17 +3,17 @@
 #include <iostream>
 
 
-AddPackage::AddPackage(std::weak_ptr<Package> package, std::string&& path, std::string&& packageName)
+AddPackage::AddPackage(std::weak_ptr<PackageController> packageController, std::string&& path, std::string&& packageName)
     : _path(std::move(path)),
       _packageName(std::move(packageName)),
-      _package(std::move(package))
+      _packageController(std::move(packageController))
 {}
 
 void AddPackage::execute()
 {
-    auto package = _package.lock();
+    auto controller = _packageController.lock();
 
-    if(package && package->add(_path, _packageName) != Package::OperationResult::NO_ERROR)
+    if(controller && controller->add(_path, _packageName) != Package::OperationResult::NO_ERROR)
     {
         std::cerr << "Error: Failed to add package: " << _packageName << std::endl;
     }

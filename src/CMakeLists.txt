@@ -3,7 +3,8 @@ set(SOURCE_FILES
         AppBuilder.cpp
         TerminalApp.cpp
         PackageManagerApp.cpp
-        Package.cpp
+        package/Package.cpp
+        package/PackageController.cpp
         cmd/CommandCreator.cpp
         cmd/ShowHelpPage.cpp
         cmd/ShowErrorMessage.cpp

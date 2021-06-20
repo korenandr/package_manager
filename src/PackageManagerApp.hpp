@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "App.hpp"
-#include "Package.hpp"
+#include "package/PackageController.hpp"
 
 
 class PackageManagerApp final : public App
@@ -16,7 +16,7 @@ public:
 
 private:
 
-    std::shared_ptr<Package> _root;
+    std::shared_ptr<PackageController> _root;
 };
 
 #endif //TESLASUIT_PACKAGE_MANAGER_PACKAGEMANAGERAPP_HPP
