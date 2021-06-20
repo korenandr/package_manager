@@ -15,6 +15,11 @@ std::string extractFirstPackageName(std::string& path, char delimiter = '/')
         packageName = path.substr(0, pos);
         path.erase(0, pos + 1);
     }
+    else if(!path.empty())
+    {
+        packageName = path;
+        path.clear();
+    }
 
     return packageName;
 }
