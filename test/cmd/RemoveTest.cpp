@@ -32,7 +32,7 @@ TEST(RemoveCommandTest, TEST_TOO_MANY_ARGUMENTS)
     ASSERT_NE(InputCommandValidator::errorMessage(), "");
 }
 
-TEST(CreateCommandTest, TEST_TOO_FEW_ARGUMENTS)
+TEST(RemoveCommandTest, TEST_TOO_FEW_ARGUMENTS)
 {
     CA arg{ CT::REMOVE_PACKAGE };
 
@@ -40,7 +40,7 @@ TEST(CreateCommandTest, TEST_TOO_FEW_ARGUMENTS)
     ASSERT_NE(InputCommandValidator::errorMessage(), "");
 }
 
-TEST(CreateCommandTest, TEST_WRONG_PATH)
+TEST(RemoveCommandTest, TEST_WRONG_PATH)
 {
     CA arg{ CT::REMOVE_PACKAGE, "/home" };
 

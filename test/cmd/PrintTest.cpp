@@ -32,7 +32,7 @@ TEST(PrintCommandTest, TEST_TOO_MANY_ARGUMENTS)
     ASSERT_NE(InputCommandValidator::errorMessage(), "");
 }
 
-TEST(CreateCommandTest, TEST_TOO_FEW_ARGUMENTS)
+TEST(PrintCommandTest, TEST_TOO_FEW_ARGUMENTS)
 {
     CA arg{ CT::PRINT_PACKAGE };
 
@@ -40,7 +40,7 @@ TEST(CreateCommandTest, TEST_TOO_FEW_ARGUMENTS)
     ASSERT_NE(InputCommandValidator::errorMessage(), "");
 }
 
-TEST(CreateCommandTest, TEST_WRONG_PATH)
+TEST(PrintCommandTest, TEST_WRONG_PATH)
 {
     CA arg{ CT::PRINT_PACKAGE, "/home" };
 
