@@ -59,7 +59,7 @@ AppOptions readOptions(cxxopts::Options& options, int argc, char** argv)
 
 cxxopts::Options makeOptions(int argc, char** argv)
 {
-    cxxopts::Options options(argv[0], "\nSome text\n");
+    cxxopts::Options options(argv[0], "\nWelcome to my package manager!\n");
     options.add_options(DEFAULT_GROUP)
             ("h,help", "Print help (this page)")
             ("l,log", "Path to a directory where to put a log file", cxxopts::value<std::string>())
