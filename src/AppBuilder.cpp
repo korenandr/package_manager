@@ -5,8 +5,7 @@
 
 std::unique_ptr<App> AppBuilder::createApp(const AppOptions& options)
 {
-    // 1. Create logger
-    // 2. Check for serialized file
+    // TODO: Create logger here
 
-    return std::make_unique<PackageManagerApp>();
+    return std::make_unique<PackageManagerApp>(options.serializedDataPath);
 }

@@ -24,7 +24,8 @@ public:
 
 private:
 
-    using PackageIt = std::map<std::string, Package>::iterator;
+    using Container = std::map<std::string, Package>;
+    using PackageIt = Container::iterator;
 
 public:
 
@@ -39,6 +40,9 @@ public:
     Package(Package&&) = default;
     Package& operator=(Package&&) = default;
 
+    friend bool operator==(const Package& lhs, const Package& rhs);
+    friend bool operator!=(const Package& lhs, const Package& rhs);
+
 public:
 
     OperationResult add(std::string path, const std::string& name);
@@ -51,7 +55,7 @@ protected:
 
     std::string _name;
 
-    std::map<std::string, Package> _rootPackages;
+    Container _rootPackages;
 
 public:
 

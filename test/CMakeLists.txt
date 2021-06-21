@@ -3,14 +3,14 @@ enable_testing()
 add_executable(
   package_test
   PackageTest.cpp
-  ../src/package/Package.cpp
-  ../src/package/PackageController.cpp
   cmd/CreateTest.cpp
   cmd/AddTest.cpp
   cmd/RemoveTest.cpp
   cmd/PrintTest.cpp
   cmd/HelpTest.cpp
   cmd/ExitTest.cpp
+  ../src/package/Package.cpp
+  ../src/package/PackageController.cpp
   ../src/utils/InputCommandValidator.cpp
 )
 

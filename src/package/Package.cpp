@@ -113,4 +113,15 @@ Package::OperationResult Package::print(std::string path /*= "" */, std::size_t 
     return _rootPackages.at(nextPackage).print(path);
 }
 
+bool operator==(const Package& lhs, const Package& rhs)
+{
+    return lhs._name == rhs._name &&
+           lhs._rootPackages == rhs._rootPackages;
+}
+
+bool operator!=(const Package& lhs, const Package& rhs)
+{
+    return !(lhs == rhs);
+}
+
 }

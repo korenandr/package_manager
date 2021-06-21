@@ -10,7 +10,7 @@
 class PackageManagerApp final : public App
 {
 public:
-    PackageManagerApp();
+    explicit PackageManagerApp(const std::string& serializedDataPath);
 
     int run(int argc, char** argv) override;
 

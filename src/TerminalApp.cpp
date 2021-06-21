@@ -9,7 +9,7 @@ namespace
 
 const char* DEFAULT_GROUP = "";
 const char* DEFAULT_LOG_PATH = "";
-const char* DEFAULT_SERIALIZED_DATA_PATH = "";
+const char* DEFAULT_SERIALIZED_DATA_PATH = "input.json";
 
 
 std::string createLogFilePath(const cxxopts::ParseResult& parseResult)
@@ -63,7 +63,7 @@ cxxopts::Options makeOptions(int argc, char** argv)
     options.add_options(DEFAULT_GROUP)
             ("h,help", "Print help (this page)")
             ("l,log", "Path to a directory where to put a log file", cxxopts::value<std::string>())
-            ("d,data", "Path to a file with serialized packages", cxxopts::value<std::string>());
+            ("d,data", "Path to a file with serialized packages", cxxopts::value<std::string>()->default_value(DEFAULT_SERIALIZED_DATA_PATH));
     return options;
 }
 

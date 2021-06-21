@@ -43,9 +43,10 @@ CommandCreator::Arguments readArguments()
 } //namespace
 
 
-PackageManagerApp::PackageManagerApp()
-    : _root(std::make_shared<ns::PackageController>())
-{}
+PackageManagerApp::PackageManagerApp(const std::string& serializedDataPath)
+    : _root(std::make_shared<ns::PackageController>(serializedDataPath))
+{
+}
 
 int PackageManagerApp::run(int argc, char** argv)
 {

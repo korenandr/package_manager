@@ -10,9 +10,25 @@ namespace ns
 class PackageController final : public Package
 {
 public:
-    PackageController();
+    explicit PackageController(const std::string& serializedDataPath = "");
+    ~PackageController() override;
+
+    PackageController(const PackageController&) = delete;
+    PackageController& operator=(const PackageController&) = delete;
+
+    PackageController(PackageController&&) = default;
+    PackageController& operator=(PackageController&&) = default;
 
     OperationResult create(const std::string& name);
+
+private:
+ 
+    void serialize() const;
+    void deserialize();
+
+private:
+
+    std::string _serializedDataPath;
 };
 
 }
