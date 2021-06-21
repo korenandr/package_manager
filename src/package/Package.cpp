@@ -29,6 +29,9 @@ std::string extractFirstPackageName(std::string& path, char delimiter = '/')
 }
 
 
+namespace ns
+{
+
 Package::Package(std::string name)
     : _name(std::move(name))
 {}
@@ -108,4 +111,6 @@ Package::OperationResult Package::print(std::string path /*= "" */, std::size_t 
     }
 
     return _rootPackages.at(nextPackage).print(path);
+}
+
 }

@@ -8,6 +8,10 @@ namespace
     const std::string DEFAULT_CONTROLLER_NAME = "/";
 }
 
+
+namespace ns
+{
+
 PackageController::PackageController()
     : Package(DEFAULT_CONTROLLER_NAME)
 {}
@@ -23,4 +27,6 @@ PackageController::OperationResult PackageController::create(const std::string& 
     }
 
     return OperationResult::NO_ERROR;
+}
+
 }

@@ -44,7 +44,7 @@ CommandCreator::Arguments readArguments()
 
 
 PackageManagerApp::PackageManagerApp()
-    : _root(std::make_shared<PackageController>())
+    : _root(std::make_shared<ns::PackageController>())
 {}
 
 int PackageManagerApp::run(int argc, char** argv)

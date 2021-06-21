@@ -4,6 +4,9 @@
 #include "Package.hpp"
 
 
+namespace ns
+{
+
 class PackageController final : public Package
 {
 public:
@@ -11,6 +14,8 @@ public:
 
     OperationResult create(const std::string& name);
 };
+
+}
 
 
 #endif //TESLASUIT_PACKAGE_MANAGER_PACKAGE_PACKAGECONTROLLER_HPP

@@ -28,7 +28,7 @@ CT to_commandType(const std::string& type)
 } //namespace
 
 
-std::unique_ptr<Command> CommandCreator::create(Arguments&& arg, std::weak_ptr<PackageController> root)
+std::unique_ptr<Command> CommandCreator::create(Arguments&& arg, std::weak_ptr<ns::PackageController> root)
 {
     std::unique_ptr<Command> command;
 

@@ -16,7 +16,7 @@ public:
 
 private:
 
-    std::shared_ptr<PackageController> _root;
+    std::shared_ptr<ns::PackageController> _root;
 };
 
 #endif //TESLASUIT_PACKAGE_MANAGER_PACKAGEMANAGERAPP_HPP

@@ -5,6 +5,12 @@
 #include <map>
 
 
+#include "nlohmann/json.hpp"
+
+
+namespace ns
+{
+
 class Package
 {
 public:
@@ -21,6 +27,8 @@ private:
     using PackageIt = std::map<std::string, Package>::iterator;
 
 public:
+
+    Package() = default;
 
     explicit Package(std::string name);
     virtual ~Package() = default;
@@ -44,7 +52,13 @@ protected:
     std::string _name;
 
     std::map<std::string, Package> _rootPackages;
+
+public:
+
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE(Package, _name, _rootPackages)
 };
+
+}
 
 
 #endif //TESLASUIT_PACKAGE_MANAGER_PACKAGE_PACKAGE_HPP

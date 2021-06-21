@@ -18,10 +18,8 @@ target_include_directories(package_test PRIVATE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../src/>
 )
 
-target_link_libraries(
-  package_test 
-  gtest_main
-)
+target_link_libraries(package_test PRIVATE gtest_main
+                                   PRIVATE nlohmann_json)
 
 include(GoogleTest)
 gtest_discover_tests(package_test)

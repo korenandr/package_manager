@@ -28,6 +28,7 @@ include(cmake/StaticAnalyzers.cmake)
 
 
 add_subdirectory(lib/cxxopts)
+add_subdirectory(lib/json)
 add_subdirectory(src)
 
 if(ENABLE_TESTING)

@@ -2,6 +2,7 @@
 #include "package/PackageController.hpp"
 
 
+using namespace ns;
 using OR = Package::OperationResult;
 
 TEST(PackageTest, TEST_CREATE)
