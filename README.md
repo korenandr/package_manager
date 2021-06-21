@@ -15,7 +15,6 @@
 
 
 # How to work with packages (example of commands):
-* cd ./build/src
 * create home
 * add home project
 * add home/project teslasuit
