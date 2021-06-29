@@ -7,8 +7,6 @@ include(cmake/PreventInSourceBuilds.cmake)
 
 option(ENABLE_TESTING "Enable Test Builds" ON)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
-
 # Link this 'library' to set the c++ standard / compile-time options requested
 add_library(project_options INTERFACE)
 target_compile_features(project_options INTERFACE cxx_std_17)

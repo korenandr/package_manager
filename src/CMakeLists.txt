@@ -16,6 +16,11 @@ set(SOURCE_FILES
         utils/InputCommandValidator.cpp
         )
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
+
+file(GLOB configFile log/log.properties)
+file(COPY ${configFile} DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE project_options
