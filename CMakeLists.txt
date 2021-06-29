@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.12)
 
 project(package-manager VERSION 1.0)
 include(cmake/StandardProjectSettings.cmake)
@@ -7,10 +7,11 @@ include(cmake/PreventInSourceBuilds.cmake)
 
 option(ENABLE_TESTING "Enable Test Builds" ON)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
 # Link this 'library' to set the c++ standard / compile-time options requested
 add_library(project_options INTERFACE)
-target_compile_features(project_options INTERFACE cxx_std_11)
+target_compile_features(project_options INTERFACE cxx_std_17)
 
 # Link this 'library' to use the warnings specified in CompilerWarnings.cmake
 add_library(project_warnings INTERFACE)
@@ -27,8 +28,7 @@ enable_sanitizers(project_options)
 include(cmake/StaticAnalyzers.cmake)
 
 
-add_subdirectory(lib/cxxopts)
-add_subdirectory(lib/json)
+add_subdirectory(lib)
 add_subdirectory(src)
 
 if(ENABLE_TESTING)

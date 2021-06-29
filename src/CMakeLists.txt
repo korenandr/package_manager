@@ -5,6 +5,7 @@ set(SOURCE_FILES
         PackageManagerApp.cpp
         package/Package.cpp
         package/PackageController.cpp
+        log/logger.cpp
         cmd/CommandCreator.cpp
         cmd/ShowHelpPage.cpp
         cmd/ShowErrorMessage.cpp
@@ -17,5 +18,8 @@ set(SOURCE_FILES
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE cxxopts
-                                      PRIVATE nlohmann_json)
+target_link_libraries(${PROJECT_NAME} PRIVATE project_options
+                                      PRIVATE project_warnings
+                                      PRIVATE cxxopts
+                                      PRIVATE nlohmann_json
+                                      PRIVATE log4cplus)

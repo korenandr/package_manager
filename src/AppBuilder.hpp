@@ -8,7 +8,7 @@
 struct AppOptions
 {
     std::string serializedDataPath;
-    std::string logFilePath;
+    std::string logFileConfigPath;
 };
 
 class AppBuilder
