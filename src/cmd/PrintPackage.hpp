@@ -2,7 +2,7 @@
 #define PACKAGE_MANAGER_CMD_PRINTPACKAGE_HPP 
 
 #include "Command.hpp"
-#include "../package/PackageController.hpp"
+#include "package/PackageController.hpp"
 
 #include <memory>
 

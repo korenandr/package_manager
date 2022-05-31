@@ -1,7 +1,7 @@
 #ifndef PACKAGE_MANAGER_UTILS_INPUTCOMMANDVALIDATOR_HPP
 #define PACKAGE_MANAGER_UTILS_INPUTCOMMANDVALIDATOR_HPP
 
-#include "../cmd/CommandCreator.hpp"
+#include "cmd/CommandCreator.hpp"
 
 #include <string>
 
