@@ -1,5 +1,5 @@
-#ifndef TESLASUIT_PACKAGE_MANAGER_CMD_PRINTPACKAGE_HPP
-#define TESLASUIT_PACKAGE_MANAGER_CMD_PRINTPACKAGE_HPP 
+#ifndef PACKAGE_MANAGER_CMD_PRINTPACKAGE_HPP
+#define PACKAGE_MANAGER_CMD_PRINTPACKAGE_HPP 
 
 #include "Command.hpp"
 #include "../package/PackageController.hpp"
@@ -20,4 +20,4 @@ private:
     std::weak_ptr<ns::PackageController> _packageController;
 };
 
-#endif //TESLASUIT_PACKAGE_MANAGER_CMD_PRINTPACKAGE_HPP
+#endif //PACKAGE_MANAGER_CMD_PRINTPACKAGE_HPP

@@ -1,5 +1,5 @@
-#ifndef TESLASUIT_PACKAGE_MANAGER_LOG_LOGGER_HPP
-#define TESLASUIT_PACKAGE_MANAGER_LOG_LOGGER_HPP_
+#ifndef PACKAGE_MANAGER_LOG_LOGGER_HPP
+#define PACKAGE_MANAGER_LOG_LOGGER_HPP_
 
 #include <log4cplus/logger.h>
 #include <log4cplus/loglevel.h>
@@ -36,4 +36,4 @@ extern log4cplus::Logger logger_;
     LOG4CPLUS_FATAL(logger_, msg); \
 }
 
-#endif // TESLASUIT_PACKAGE_MANAGER_LOG_LOGGER_HPP
+#endif // PACKAGE_MANAGER_LOG_LOGGER_HPP

@@ -1,5 +1,5 @@
-#ifndef TESLASUIT_PACKAGE_MANAGER_APP_HPP
-#define TESLASUIT_PACKAGE_MANAGER_APP_HPP
+#ifndef PACKAGE_MANAGER_APP_HPP
+#define PACKAGE_MANAGER_APP_HPP
 
 class App
 {
@@ -19,4 +19,4 @@ public:
     virtual int run(int argc, char** argv) = 0;
 };
 
-#endif //TESLASUIT_PACKAGE_MANAGER_APP_HPP
+#endif //PACKAGE_MANAGER_APP_HPP

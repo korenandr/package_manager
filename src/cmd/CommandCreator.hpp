@@ -1,5 +1,5 @@
-#ifndef TESLASUIT_PACKAGE_MANAGER_CMD_COMMANDCREATOR_HPP
-#define TESLASUIT_PACKAGE_MANAGER_CMD_COMMANDCREATOR_HPP 
+#ifndef PACKAGE_MANAGER_CMD_COMMANDCREATOR_HPP
+#define PACKAGE_MANAGER_CMD_COMMANDCREATOR_HPP 
 
 #include "Command.hpp"
 #include "../package/PackageController.hpp"
@@ -36,4 +36,4 @@ public:
     static std::unique_ptr<Command> create(Arguments&& arg, std::weak_ptr<ns::PackageController> root);
 };
 
-#endif //TESLASUIT_PACKAGE_MANAGER_CMD_COMMANDCREATOR_HPP
+#endif //PACKAGE_MANAGER_CMD_COMMANDCREATOR_HPP
