@@ -32,3 +32,8 @@ print media/devices
 print
 exit
 ```
+
+### Useful links
+
+* [C++ Starter Template](https://github.com/cpp-best-practices/gui_starter_template)
+* [Google Test](https://github.com/google/googletest/blob/master/googletest/docs/Primer.md)
